@@ -25,7 +25,7 @@ class a():
                 pad_Image=pad_Image.resize((pad_w,pad_h))
                 bg_Image.paste(pad_Image,(self.left,self.top),mask=None)
             else:
-                rate=max((self.right-self.left)/pad_w,(self.bottom-self.top)/pad_h)   #计算宽高中距离box规格最远的的一项的扩大率
+                rate=min((self.right-self.left)/pad_w,(self.bottom-self.top)/pad_h)   #计算宽高中比box大且距离box规格最远的的一项的扩大率
                 pad_w=int(rate*pad_w)
                 pad_h=int(rate*pad_h)
                 pad_Image=pad_Image.resize((pad_w,pad_h))
